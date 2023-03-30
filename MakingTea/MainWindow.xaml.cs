@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using System;
+using Windows.Devices.Enumeration;
 using WinRT;
 using WinRT.Interop;
 
@@ -22,13 +23,15 @@ namespace MakingTea
             this.InitializeComponent();
             this.ExtendsContentIntoTitleBar = true;
             AppTitleTextBlock.Text = "Заварка чая";
-            this.SetTitleBar(AppTitleBar);                   
+            this.SetTitleBar(AppTitleBar);
             TrySetSystemBackdrop();
 
             IntPtr hWnd = WindowNative.GetWindowHandle(this);
             var windowId = Win32Interop.GetWindowIdFromWindow(hWnd);
             var appWindow = AppWindow.GetFromWindowId(windowId);
-            appWindow.Resize(new Windows.Graphics.SizeInt32 { Width = 800, Height = 500 });            
+            appWindow.Resize(new Windows.Graphics.SizeInt32 { Width = 550, Height = 250 });
+
+            blackTea.Content = "Чёрный чай (3 мин.)";
         }
 
         bool TrySetSystemBackdrop()
@@ -48,8 +51,8 @@ namespace MakingTea
 
                 m_backdropController = new MicaController()
                 {
-                    Kind = MicaKind.BaseAlt                   
-                };               
+                    Kind = MicaKind.BaseAlt
+                };
 
                 m_backdropController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
                 m_backdropController.SetSystemBackdropConfiguration(m_configurationSource);
@@ -61,7 +64,7 @@ namespace MakingTea
 
         private void Window_Activated(object sender, WindowActivatedEventArgs args)
         {
-            m_configurationSource.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;           
+            m_configurationSource.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
         }
 
         private void Window_Closed(object sender, WindowEventArgs args)
@@ -91,6 +94,23 @@ namespace MakingTea
                 case ElementTheme.Light: m_configurationSource.Theme = SystemBackdropTheme.Light; break;
                 case ElementTheme.Default: m_configurationSource.Theme = SystemBackdropTheme.Default; break;
             }
+        }
+
+        private async void BlackTea_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog dialog = new()
+            {
+                XamlRoot = Filles.XamlRoot,
+                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
+                Title = "Save your work?",
+                PrimaryButtonText = "Save",
+                SecondaryButtonText = "Don't Save",
+                CloseButtonText = "Cancel",
+                DefaultButton = ContentDialogButton.Primary,
+                Content = new BlackTea()
+            };
+
+            await dialog.ShowAsync();
         }
     }
 }
