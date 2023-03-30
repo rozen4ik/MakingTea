@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
 
 namespace MakingTea
 {
@@ -25,7 +20,6 @@ namespace MakingTea
         {
             if (Windows.System.DispatcherQueue.GetForCurrentThread() != null)
             {
-                // one already exists, so we'll just use it.
                 return;
             }
 
@@ -33,8 +27,8 @@ namespace MakingTea
             {
                 DispatcherQueueOptions options;
                 options.dwSize = Marshal.SizeOf(typeof(DispatcherQueueOptions));
-                options.threadType = 2;    // DQTYPE_THREAD_CURRENT
-                options.apartmentType = 2; // DQTAT_COM_STA
+                options.threadType = 2;
+                options.apartmentType = 2;
 
                 CreateDispatcherQueueController(options, ref m_dispatcherQueueController);
             }
