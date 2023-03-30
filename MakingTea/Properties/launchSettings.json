@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MakingTea (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "MakingTea (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
