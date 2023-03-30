@@ -27,13 +27,21 @@
                        VerticalAlignment="Center"
                        Margin="28,0,0,0"/>
         </Grid>
-        <Grid>
-            <!--<StackPanel>
-            <TextBlock x:Name="ContentView"
-                           Text="Content" 
-                           Style="{ThemeResource TitleTextBlockStyle}"
-                           Margin="32,0,0,0"/>
-        </StackPanel>-->
+
+        <Grid x:Name="Filles" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Rectangle x:Name="FillWhite" Fill="White" Grid.Row="0" Grid.Column="0"/>
+            <Rectangle Fill="Blue" Grid.Row="1" Grid.Column="1"/>
+            <Rectangle Fill="Red" Grid.Row="2" Grid.Column="2"/>
         </Grid>
     </Grid>
 </Window>

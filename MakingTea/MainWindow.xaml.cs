@@ -28,9 +28,7 @@ namespace MakingTea
             IntPtr hWnd = WindowNative.GetWindowHandle(this);
             var windowId = Win32Interop.GetWindowIdFromWindow(hWnd);
             var appWindow = AppWindow.GetFromWindowId(windowId);
-            appWindow.Resize(new Windows.Graphics.SizeInt32 { Width = 800, Height = 500 });
-
-            //ContentView.Text = "Контент";
+            appWindow.Resize(new Windows.Graphics.SizeInt32 { Width = 800, Height = 500 });            
         }
 
         bool TrySetSystemBackdrop()
