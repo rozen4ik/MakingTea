@@ -102,10 +102,10 @@ namespace MakingTea
             {
                 XamlRoot = Filles.XamlRoot,
                 Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
-                Title = "Save your work?",
-                PrimaryButtonText = "Save",
-                SecondaryButtonText = "Don't Save",
-                CloseButtonText = "Cancel",
+                Title = "Сохранить вашу работу?",
+                PrimaryButtonText = "Сохранить",
+                SecondaryButtonText = "Не сохранять",
+                CloseButtonText = "Закрыть",
                 DefaultButton = ContentDialogButton.Primary,
                 Content = new BlackTea()
             };

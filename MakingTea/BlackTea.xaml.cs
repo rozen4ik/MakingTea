@@ -29,6 +29,8 @@ namespace MakingTea
         public BlackTea()
         {
             this.InitializeComponent();
+            blackTeaText.Text = "Благодарим вас за проявленный интерес к экологическим технологиям.";
+            blackTeaCheckBox.Content = "Загружайте свой контент в облако.";
         }
     }
 }

@@ -8,12 +8,11 @@
     xmlns:local="using:MakingTea"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}">
+    mc:Ignorable="d">
 
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
-        <TextBlock Text="Lorem ipsum dolor sit amet, adipisicing elit." TextWrapping="Wrap" />
-        <CheckBox Content="Upload your content to the cloud."/>
+        <TextBlock x:Name="blackTeaText" Text="Lorem ipsum dolor sit amet, adipisicing elit." TextWrapping="Wrap" />
+        <CheckBox x:Name="blackTeaCheckBox" Content="Upload your content to the cloud."/>
     </StackPanel>
 
 </Page>
